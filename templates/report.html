@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}Звіт{% endblock %}
+
+{% block body %}
+
+    <h2>Звіт по всім тестам</h2>
+
+    <table class="table table-bordered table-hover">
+     <thead>
+       <tr>
+           <th>Група</th>
+           <th>Тип</th>
+           <th>Студент</th>
+           <th>Тест</th>
+           <th>Бали</th>
+           <th>Результат</th>
+       </tr>
+     </thead>
+    <tbody>
+     {% regroup users by group as groups_list %}
+
+        {% for group in groups_list %}
+
+       <tr>
+          <td> <strong>{{ group.grouper }}</strong> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+       </tr>
+
+          {% regroup group.list by kind as groups_kinds_list %}
+
+            {% for group_kind in groups_kinds_list %}
+
+       <tr>
+          <td>  </td>
+          <td> <strong>{{ group_kind.grouper }}</strong>  </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+       </tr>
+
+               {% for user in group_kind.list %}
+
+       <tr>
+          <td>  </td>
+          <td>  </td>
+          <td> <strong>{{ user.name }}</strong>  </td>
+          <td>  </td>
+          <td>  </td>
+          <td>  </td>
+       </tr>
+
+                  {% if user.tests %}
+
+                     {% for test in user.tests %}
+       <tr>
+          <td>  </td>
+          <td>  </td>
+          <td>  </td>
+          <td> <strong>{{ test.name  }}</strong>  </td>
+          <td> <strong>{{ test.result.score  }}</strong>  </td>
+          <td> <strong>{{ test.result.result  }}</strong> </td>
+       </tr>
+
+            {% endfor %}
+
+                    {% else %}
+
+       <tr>
+          <td>  </td>
+          <td>  </td>
+          <td>  </td>
+          <td colspan="3">Жоден тест не пройдено</td>
+       </tr>
+
+
+                     {% endif %}
+
+             {% endfor %}
+
+         {% endfor %}
+
+     {% endfor %}
+
+     </tbody>
+   </table>
+{% endblock %}
+
+
+
+
+
+
+
+

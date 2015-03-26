@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}результати{% endblock %}
+
+{% block body %}
+            <h1>Тест закіченно</h1>
+            <p>ваш результат {{result}}</p>
+            <p>Студент <strong>{{user}}</strong></p>
+            <p>Назва тесту  {{test}}</p>
+            <p>Кількість балів {{score}}</p>
+            <a href="{% url 'index' %}"> перехід на список тестів</a>
+       
+{% endblock %}
+
+
+

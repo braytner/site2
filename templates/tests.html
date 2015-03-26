@@ -1,0 +1,35 @@
+
+{% extends "base.html" %}
+
+{% block title %}тести{% endblock %}
+
+{% block body %}
+
+            {% if tests %}
+                <p>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <h2 style="color:black;">Виберіть тест</h2>
+                                    </th>
+                                </tr>
+                            </thead>
+                            {% for test in tests %}
+                                <tr>
+                                    <td>
+                                        <h4><a href="{{ test.get_url }}">{{ test.name }}</a></h4>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                </p>
+            {% else %}
+                <p>No polls are available.</p>
+            {% endif %}
+
+     
+{% endblock %}
+
+
+

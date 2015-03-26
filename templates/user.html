@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}реєстрація{% endblock %}
+
+{% block body %}
+  
+  <p class="lead">Введіть ваші прізвище, ім'я, по батькові. Вкажіть вашу групу. Обовязково виберіть в селекторі вибору тип групи, та тип тестування.</p>
+
+  <div class="row">
+    <div class="col-md-7 col-md-offset-2">
+      {% load bootstrap %}
+      <form class="form-horizontal" action="" method="post">{% csrf_token %}
+        {{ form|bootstrap_horizontal:'col-sm-5' }}
+        <div class="form-group">
+          <div class="col-sm-7 col-sm-offset-5">
+            <input type="submit" class="btn btn-primary" value="Перейти до тестів" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}
